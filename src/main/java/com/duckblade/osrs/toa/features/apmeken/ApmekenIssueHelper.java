@@ -5,7 +5,6 @@ import com.duckblade.osrs.toa.module.PluginLifecycleComponent;
 import com.duckblade.osrs.toa.util.RaidRoom;
 import com.duckblade.osrs.toa.util.RaidState;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -15,7 +14,6 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import net.runelite.api.ChatMessageType;
 import net.runelite.api.Client;
-import net.runelite.api.GraphicsObject;
 import net.runelite.api.Model;
 import net.runelite.api.Player;
 import net.runelite.api.RuneLiteObject;
@@ -23,7 +21,6 @@ import net.runelite.api.coords.LocalPoint;
 import net.runelite.api.coords.WorldPoint;
 import net.runelite.api.events.AnimationChanged;
 import net.runelite.api.events.ChatMessage;
-import net.runelite.api.events.GameTick;
 import net.runelite.client.eventbus.EventBus;
 import net.runelite.client.eventbus.Subscribe;
 
@@ -100,10 +97,10 @@ public class ApmekenIssueHelper implements PluginLifecycleComponent
 	@Subscribe
 	public void onChatMessage(ChatMessage e)
 	{
-		 if (e.getType() != ChatMessageType.GAMEMESSAGE)
-		 {
-		 	return;
-		 }
+		if (e.getType() != ChatMessageType.GAMEMESSAGE)
+		{
+			return;
+		}
 
 		String message = e.getMessage().replaceAll("<.*?>", "");
 		if (message.equals(MESSAGE_ISSUE_SENSED) ||
@@ -134,7 +131,7 @@ public class ApmekenIssueHelper implements PluginLifecycleComponent
 		Player player = (Player) e.getActor();
 		int animationId = player.getAnimation();
 		WorldPoint playerLocation = player.getWorldLocation();
-		
+
 		if (playerLocation == null)
 		{
 			return;
@@ -222,7 +219,7 @@ public class ApmekenIssueHelper implements PluginLifecycleComponent
 		{
 			return;
 		}
-        
+
 		boolean isNorth = worldPoint.getY() >= 2788;
 		int modelId = isNorth ? MODEL_SKULL_SOUTH : MODEL_SKULL_NORTH;
 
