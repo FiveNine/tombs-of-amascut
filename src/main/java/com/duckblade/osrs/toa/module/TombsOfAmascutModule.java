@@ -137,7 +137,7 @@ public class TombsOfAmascutModule extends AbstractModule
 			akkhaShadowHealthOverlay,
 			apmekenBaboonIndicator,
 			apmekenBaboonIndicatorOverlay,
-			apmekenIssueHelper
+			apmekenIssueHelper,
 			apmekenWaveInstaller,
 			babaSarcophagusWarning,
 			beamTimerOverlay,
